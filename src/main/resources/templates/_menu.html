@@ -1,0 +1,25 @@
+<div xmlns:th="http://www.thymeleaf.org" class="menu">
+ 
+	<a th:href="@{/}">Home</a>
+ 
+	<span th:if="${#request.userPrincipal != null}">
+	    &nbsp; | &nbsp;
+	    <a th:href="@{/user/myUsersStatistics}">My Info</a>
+	    &nbsp; | &nbsp;
+	    <a th:href="@{/admin/allUsersStatistics}">All Users Stats</a>
+	    &nbsp; | &nbsp;
+	    <a th:href="@{/admin/allUsers}">Registered Users</a>
+        &nbsp; | &nbsp;
+        <a href="#" onclick="document.getElementById('logout-form').submit();">Logout</a>
+	</span>
+ 
+	<span th:if="${#request.userPrincipal == null}">
+	    &nbsp; | &nbsp;
+	    <a th:href="@{/createUser}">Create User</a>
+	    &nbsp; | &nbsp;
+	    <a th:href="@{/login}">Login</a>
+	</span>
+ 
+	<form id="logout-form" th:action="@{/logout}" method="post" style="display: none;">
+	</form>
+</div>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Windmill Challenge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+
+	<h2>Login</h2>
+
+	<div class="error" th:if="${param.error}">
+		<p>Invalid username and/or password.</p>
+	</div>
+	<div class="success" th:if="${param.logout}">
+		<p>You have been logged out.</p>
+	</div>
+
+	<form th:action="@{/login}" method="POST">
+		<table>
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="username" /></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td />
+				<td><input type="submit" value="Login" /> <a th:href="@{/}">Cancel</a></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

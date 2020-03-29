@@ -1,0 +1,29 @@
+.menu {
+	border: 1px solid #ccc;
+	padding:5px;
+	margin-bottom:20px;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+.simple-table {
+  border-collapse: collapse;
+}
+
+.simple-table {
+  border: 1px solid black;
+}
+
+.simple-table * {
+border: 1px solid black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+}

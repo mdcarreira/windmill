@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Windmill Challenge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+
+	<h2 th:if="${username}">
+		User <u><span th:text="${username}" /></u> statistics
+	</h2>
+	<!-- ELSE -->
+	<h2 th:unless="${username}">Users statistics</h2>
+
+	<table class="simple-table">
+		<tr>
+			<th>Username</th>
+			<th>Action</th>
+			<th>Date</th>
+		</tr>
+		<tr th:each="stat : ${stats}">
+			<td th:utext="${stat.username}">...</td>
+			<td th:utext="${stat.action}">...</td>
+			<td th:text="${#dates.format(stat.date, 'yyyy-MM-dd HH:mm:ss')}"></td>
+		</tr>
+	</table>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Windmill Challenge</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+
+	<div class="success" th:if="${registeredUser != null}">
+		<h2>You have successfully registered user:
+			<u><span th:text="${registeredUser.username}"></span></u>
+		</h2>
+	</div>
+
+	<h2>Currently registered users</h2>
+	<table class="simple-table">
+		<tr>
+			<th>Username</th>
+			<th>Encrypted Password</th>
+			<th>Admin</th>
+		</tr>
+		<tr th:each="user : ${allUsers}">
+			<td th:text="${user.username}" />
+			<td th:text="${user.encrytedPassword}" />
+			<td th:text="${user.admin}" />
+		</tr>
+	</table>
+</body>
+</html>
